@@ -1,0 +1,47 @@
+﻿@model AlrInvestSupply.Models.Entity.Clients
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Areas/Control/Views/Shared/_LayoutControl.cshtml";
+}
+
+
+<h3>Seçdiyiniz elementi silmək istədiyinizə əminsiz ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+         Şəkil
+        </dt>
+
+        <dd>
+            <img width="100" src="@(string.IsNullOrWhiteSpace(Model.MediaUrl)?"":Href("~/media/"+Model.MediaUrl))" />
+        </dd>
+
+        <dt>
+          Link
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Əvvəlki səhifəyə qayıt", "Index")
+        </div>
+    }
+</div>

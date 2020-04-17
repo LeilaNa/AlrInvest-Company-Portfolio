@@ -1,0 +1,237 @@
+a {
+  text-decoration: none !important; }
+
+hr {
+  margin: 0px !important; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-size: 18px;
+  line-height: 30px;
+  font-family: "Roboto", sans-serif;
+  color: #272727;
+  overflow-x: hidden;
+  font-weight: 300; }
+  body .menuMobile {
+    background: #001821;
+    position: fixed;
+    width: 0px;
+    height: 100%;
+    right: 0;
+    z-index: 10000;
+    overflow: scroll;
+    transition: 0.5s;
+    float: left;
+    float: left; }
+    body .menuMobile button {
+      float: left;
+      color: red;
+      opacity: .5;
+      background: transparent;
+      border: none;
+      padding: 10px;
+      font-size: 25px; }
+    body .menuMobile nav ul {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      padding-top: 20px; }
+      body .menuMobile nav ul li {
+        padding-top: 1em; }
+        body .menuMobile nav ul li a {
+          padding: 1em;
+          font-size: 18px;
+          color: white;
+          text-transform: uppercase; }
+  body header {
+    z-index: 10000; }
+    body header .lang {
+      background: white;
+      width: 100%;
+      height: 30px; }
+      body header .lang ul {
+        position: absolute;
+        right: 10%;
+        display: flex;
+        flex-direction: row;
+        list-style-type: none; }
+        body header .lang ul li {
+          padding: 2px 5px; }
+          body header .lang ul li a {
+            color: black;
+            font-size: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            transition: 0.5s;
+            padding: 15px 5px;
+            transition: 0.5s; }
+          body header .lang ul li a:hover {
+            color: #aaa4a4; }
+    body header .first {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      position: relative;
+      overflow: visible;
+      z-index: 1000;
+      width: 100%; }
+      body header .first .head {
+        background: white; }
+        body header .first .head .container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between; }
+        body header .first .head button {
+          display: none;
+          background: none;
+          color: #00aeef;
+          padding: 15px 15px;
+          border: none;
+          opacity: 0.7;
+          font-size: 20px; }
+        body header .first .head .logo img {
+          padding: 10px;
+          height: 120px; }
+        body header .first .head nav {
+          display: block; }
+          body header .first .head nav ul {
+            padding-top: 20px;
+            list-style-type: none;
+            display: flex;
+            flex-direction: row; }
+            body header .first .head nav ul li {
+              padding: 1em; }
+              body header .first .head nav ul li a {
+                color: black;
+                font-size: 14px;
+                text-transform: uppercase;
+                border-bottom: 2px solid transparent;
+                transition: 0.5s;
+                padding: 1em; }
+              body header .first .head nav ul li a:hover {
+                border-color: #00aeef;
+                color: #00aeef; }
+      body header .first .pageName {
+        background-image: url(../img/home-hero-bg.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        position: relative;
+        overflow: visible;
+        z-index: 1000;
+        width: 100%;
+        text-align: center;
+        height: 320px; }
+        body header .first .pageName h1 {
+          font-size: 2.5rem;
+          top: 30%;
+          position: absolute;
+          left: 45%;
+          color: white; }
+      body header .first .slogan {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        max-width: 800px;
+        color: white;
+        margin: 0 auto;
+        padding: 150px 0px; }
+        body header .first .slogan h1 {
+          font-size: 60px;
+          text-transform: uppercase;
+          padding: 20px 0px; }
+        body header .first .slogan p {
+          font-size: 25px;
+          padding: 20px 0px; }
+        body header .first .slogan span {
+          padding-top: 100px; }
+  body footer {
+    background: #001821;
+    padding: 50px; }
+    body footer .menu {
+      text-align: left;
+      float: left; }
+      body footer .menu ul {
+        padding: 0px;
+        display: flex;
+        list-style-type: none;
+        flex-direction: column;
+        text-align: left; }
+        body footer .menu ul li {
+          padding: 5px; }
+          body footer .menu ul li a {
+            color: white;
+            font-size: 14px;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
+            transition: 0.5s;
+            padding: 10px; }
+          body footer .menu ul li a:hover {
+            border-color: #00aeef;
+            color: #00aeef; }
+    body footer .contactInfo {
+      color: white; }
+      body footer .contactInfo ul {
+        display: flex;
+        flex-direction: column; }
+        body footer .contactInfo ul li {
+          display: flex;
+          flex-direction: row; }
+          body footer .contactInfo ul li i {
+            margin-right: 10px;
+            font-size: 18px; }
+          body footer .contactInfo ul li p {
+            font-size: 18px; }
+    body footer .mapouter {
+      text-align: right; }
+    body footer .gmap_canvas {
+      overflow: hidden;
+      background: none !important;
+      height: 220px;
+      width: auto; }
+    body footer hr {
+      margin: 20px 0px;
+      color: #eee; }
+    body footer .end {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 12px; }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body header .pageName {
+    height: 250px !important; }
+    body header .pageName h1 {
+      top: 30% !important;
+      left: 42% !important; }
+  body header .logo img {
+    height: 100px !important; }
+  body header .logo img {
+    height: 100px !important; }
+  body header .head nav {
+    display: none !important; }
+  body header .head button {
+    display: block !important; }
+  body header h1 {
+    font-size: 40px !important; } }
+@media (max-width: 767.98px) {
+  body header .pageName {
+    height: 210px !important; }
+    body header .pageName h1 {
+      top: 30% !important;
+      position: absolute !important;
+      left: 35% !important; }
+  body header .logo img {
+    height: 70px !important; }
+  body header .logo img {
+    height: 100px !important; }
+  body header .head nav {
+    display: none !important; }
+  body header .head button {
+    display: block !important; }
+  body header h1 {
+    font-size: 30px !important; } }
+
+/*# sourceMappingURL=menu.css.map */

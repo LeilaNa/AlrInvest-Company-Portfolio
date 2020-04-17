@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AlrInvestSupply.Models.Entity.Clients>
+
+@{
+    ViewBag.Title = " Müştərilər";
+    Layout = "~/Areas/Control/Views/Shared/_LayoutControl.cshtml";
+}
+
+    <h2>Müştərilər</h2>
+    <h4>
+        @Html.ActionLink("Yenisini əlavə et", "Create")
+    </h4>
+<table class="table">
+    <tr>
+        <th>
+           Adı
+        </th>
+        <th>
+           Link
+        </th>
+        <th>
+         Şəkil
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Link)
+    </td>
+    <td><img width="100" src="@(string.IsNullOrWhiteSpace(item.MediaUrl)?"":Href("~/media/"+item.MediaUrl))" /></td>
+    <td class="datatable-ct">
+        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-success btn-sm"><i class="fa fa-edit text-light"></i></a>
+        <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger btn-sm"><i class="fa fa-trash text-light"></i></a>
+    </td>
+</tr>
+}
+
+</table>

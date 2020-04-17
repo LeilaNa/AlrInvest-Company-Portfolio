@@ -1,0 +1,223 @@
+﻿@model AlrInvestSupply.HomePageViewModel
+@using AlrInvestSupply.AppCode.Globalization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Public/css//home.css">
+    <script src="https://kit.fontawesome.com/e427ab7fe7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/Public/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Public/css/owl.theme.default.min.css">
+    <title>Alr Invest </title>
+    <script>
+        function SetLang(lang) {
+            var win = window.location.href;
+            var en = win.search("en");
+            var az = win.search("az");
+            if (en == -1 && az == -1) {
+                var str = window.location.href;
+                var res = str.split("/");
+                res[4] = lang;
+                var url = res.join("/");
+                window.location.href = url;
+            }
+            else {
+                var chref = window.location.href.replace(/(az|en)/g, lang)
+                window.location.href = chref;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <style>
+            .active {
+                border-color: #00aeef !important;
+                color: #00aeef !important;
+            }
+        </style>
+        <!-- menu for mobile  -->
+
+        <div class="menuMobile">
+            <button class="closeMenu"><i class="fas fa-times"></i></button>
+            <nav>
+                <ul>
+                    <li><a href="@Url.Action("Index","Home")">@RLang.Home</a></li>
+                    <li><a href="@Url.Action("Index","About")">@RLang.About</a></li>
+                    <li><a href="@Url.Action("Index","Service")">@RLang.Services</a></li>
+                    <li><a href="@Url.Action("Index","Client")">@RLang.Clients</a></li>
+                    <li><a href="@Url.Action("Index","Contact")">@RLang.Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="lang">
+
+            <ul>
+                <li onclick="SetLang('az')"><a href="#">AZ</a></li>
+                <li onclick="SetLang('en')"><a href="#">EN</a></li>
+            </ul>
+
+        </div>
+
+        <hr />
+        <div class="first">
+                <div class="head">
+                    <div class="container">
+                        <div class="logo">
+                            <a href="#"><img src="~/Public/img/Screenshot (54).png" alt="alr invest logo"></a>
+                        </div>
+                        <!-- nav for desktop -->
+                        <nav>
+                            <ul>
+                                <li><a href="@Url.Action("Index","Home")">@RLang.Home</a></li>
+                                <li><a href="@Url.Action("Index","About")">@RLang.About</a></li>
+                                <li><a href="@Url.Action("Index","Service")">@RLang.Services</a></li>
+                                <li><a href="@Url.Action("Index","Client")">@RLang.Clients</a></li>
+                                <li><a href="@Url.Action("Index","Contact")">@RLang.Contact</a></li>
+                            </ul>
+                        </nav>
+                        <button class="openMenu"> <i class="fas fa-bars"></i></button>
+                    </div>
+                  
+                    <!--button for mobile nav-->
+                    <!-- ///////////////////////// -->
+                </div>
+                <section>
+                    <div class="slogan">
+                        <h1>@Model.Slogans.BigSlogan</h1>
+                        <p>
+                            @Model.Slogans.SmallSlogan
+                        </p>
+                        <span class="angle">
+                            <svg style="width: 127px;" viewBox="0 0 127 44">
+                                <path style="fill: #eebd1c" fill="none" d="M0 0v23.8L63.5 44 127 23.8V0L63.5 19.6 0 0z">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                </section>
+
+
+        </div>
+
+    </header>
+
+    <!-- blue/ icons -->
+    <section>
+        <div class="grids">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                        <img class="item-1" src="~/Public/img/item-1.png" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                        <img class="item-2" src="~/Public/img/item-2.png" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                        <img class="item-3" src="~/Public/img/item-3.png" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- about sections  -->
+    <section>
+        <div class="container about">
+            <div class="row">
+
+                <div class="writing col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2>@RLang.About</h2>
+                    <p>
+                        @Model.About.Description
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- services carousel -->
+    <section>
+        <div class="container">
+            <h2> @RLang.Services</h2>
+        </div>
+        <div class="owl-carousel">
+            @foreach (var item in Model.Services)
+            {
+                <div>
+                    <a href="">
+                        <img src="@(string.IsNullOrWhiteSpace(item.MediaUrl)?"":Href("~/media/"+item.MediaUrl))" alt="@item.Name">
+                        <div class="info">
+                            <div class="main">
+                                <h3>@item.Name</h3>
+                                <p>
+                                    @item.Description
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            }
+
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+       @Html.Action("Footer","Home")
+    </footer>
+
+    <!-- js tags -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="~/Public/js/menu.js"></script>
+    <script src="~/Public/js/owl.carousel.min.js"></script>
+
+    <!-- owl carousel extensions -->
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                responsiveClass: true,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true,
+                        loop: true
+                    },
+                    600: {
+                        items: 2,
+                        nav: true,
+                        loop: true
+                    },
+                    1000: {
+                        items: 3,
+                        nav: true,
+                        loop: true
+                    }
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

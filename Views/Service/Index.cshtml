@@ -1,0 +1,38 @@
+﻿@model IEnumerable<AlrInvestSupply.Models.Entity.Services>
+@using AlrInvestSupply.AppCode.Globalization
+
+
+@{
+    ViewBag.Title = RLang.Services;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+
+
+
+    <div class="container about">
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="aboutImg col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                    <div class="block">
+                        <img src="@(string.IsNullOrWhiteSpace(item.MediaUrl)?"":Href("~/media/"+item.MediaUrl))" alt="@item.Name">
+                    </div>
+                </div>
+                <div class="writing col-lg-8 col-md-6 col-sm-12 col-xs-12">
+                    <h2>@item.Name</h2>
+                    <p>
+                        @item.Description
+                    </p>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>
+
+@section style{
+    <link rel="stylesheet" href="~/Public/css/aboutBody.css">
+
+}

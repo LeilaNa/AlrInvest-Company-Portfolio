@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AlrInvestSupply.Models.Entity.Slogans>
+
+@{
+    ViewBag.Title = "Sloqan";
+    Layout = "~/Areas/Control/Views/Shared/_LayoutControl.cshtml";
+}
+
+<h2>Sloqan</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Language.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BigSlogan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmallSlogan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Language.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BigSlogan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SmallSlogan)
+    </td>
+
+    <td class="datatable-ct">
+        <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-success btn-sm"><i class="fa fa-edit text-light"></i></a>
+    </td>
+</tr>
+}
+
+</table>

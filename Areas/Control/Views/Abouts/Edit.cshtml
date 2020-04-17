@@ -1,0 +1,52 @@
+﻿@model AlrInvestSupply.Models.Entity.About
+
+@{
+    ViewBag.Title = "Redaktə - Haqqımızda";
+    Layout = "~/Areas/Control/Views/Shared/_LayoutControl.cshtml";
+}
+
+<h2>Redaktə - Haqqımızda</h2>
+<style>
+ textarea{
+     width:100%;
+     height: 150px;
+     overflow:auto;
+ }
+</style>
+
+@using  (Html.BeginForm("Edit", "Abouts", method: FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group" style="padding:30px;margin:30px;">
+            <label class="control-label col-md-2">Mətn</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control "}})
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" >
+            <label style="margin: 20px 0px;"  class="control-label col-md-2">Dil</label>
+            <div style="margin: 20px 0px;" class="col-md-10">
+                @Html.DropDownList("LanguageId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group"  >
+            <div style="margin:30px;" class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yadda saxla" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<h2  style="padding:30px;margin:30px;">
+    @Html.ActionLink("Əvvəlki səhifəyə qayıt", "Index")
+</h2>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AlrInvestSupply.Models.Entity.Clients>
+@using AlrInvestSupply.AppCode.Globalization
+
+@{
+    ViewBag.Title = RLang.Clients;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section>
+    <div class="container">
+        <div class="row allClients">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                    <figure class="snip1104 blue">
+                        <img src="@(string.IsNullOrWhiteSpace(item.MediaUrl)?"":Href("~/media/"+item.MediaUrl))" alt="@item.Name" />
+                        <figcaption>
+                            <h2> <span> @item.Name</span></h2>
+                        </figcaption>
+                        <a href="@item.Link"></a>
+                    </figure>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</section>
+
+@section script{
+    <script>
+        $("figure").mouseleave(
+            function () {
+                $(this).removeClass("hover");
+            }
+        );</script>
+}
+
+@section style{
+    <link rel="stylesheet" href="~/Public/css/clients.css">
+}

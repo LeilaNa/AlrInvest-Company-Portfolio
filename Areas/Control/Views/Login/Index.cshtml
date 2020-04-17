@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> Login</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/Areas/Control/PublicAdmin/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="~/Areas/Control/PublicAdmin/css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-dark">
+
+    <div class="container">
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Daxil ol</div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="form-group">
+                        <div class="form-label-group">
+                            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="E-poçt ünvanı" required="required" autofocus="autofocus">
+                            <label for="inputEmail">E-poçt ünvanı</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-label-group">
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="şifrə" required="required">
+                            <label for="inputPassword">Şifrə</label>
+                        </div>
+                    </div>
+
+                    @{
+                        if (ViewBag.LoginError != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.LoginError
+                            </div>
+                        }
+                    }
+                    <div style="width:100%" class="container-login100-form-btn">
+                        <button style="width:100%" type="submit" class="btn btn-success login100-form-btn">
+                            Daxil ol
+                        </button>
+                    </div>
+                </form>
+                @*<div class="text-center">
+                    <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+                </div>*@
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Areas/Control/PublicAdmin/js/jquery.min.js"></script>
+    <script src="~/Areas/Control/PublicAdmin/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Areas/Control/PublicAdmin/js/jquery.easing.min.js"></script>
+
+</body>
+
+</html>
